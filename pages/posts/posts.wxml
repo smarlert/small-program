@@ -1,0 +1,19 @@
+<!--pages/posts/posts.wxml-->
+<import src="post-item/post-item-template.wxml" />
+<swiper indicator-dots="true" indicator-color="#ccc" indicator-active-color="green" autoplay="true" catchtap='onSwiperTap'>
+  <swiper-item>
+    <image data-postId="3" src='/images/wx.png'></image>
+  </swiper-item>
+  <swiper-item>
+    <image src='/images/vr.png' data-postId="4"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src='/images/iqiyi.png' data-postId="5"></image>
+  </swiper-item>
+</swiper>
+
+<block wx:for="{{keys}}" wx:key="item" wx:for-item="item">
+  <view catchtap="onPostTap" data-postId="{{item.postId}}">
+    <template is="postItem" data="{{...item}}" />
+  </view>
+</block>

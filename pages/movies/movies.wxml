@@ -1,0 +1,20 @@
+<!--pages/movies/movies.wxml-->
+<import src="movie-list/movie-list-template.wxml" />
+<import src="movie/movie-template.wxml" />
+<view class='search'>
+  <icon type='search' size='13' color='#405f80' class='search-img'></icon>
+  <input type='text' placeholder='search movie' placeholder-class='placeholder' bindfocus='onBindFocus' bindconfirm='onBindConfirm'></input>
+  <image wx:if="{{searchpannel}}" src='/images/icon/xx.png' class='cancel' catchtap='onCancel'></image>
+</view>
+<template wx:if="{{containerShow}}" is="movieListTemplate" data="{{movie}}" />
+<view class='search-pannel' wx:if="{{searchpannel}}" data="{{movie}}">
+  <template is="movieTemplate"/>
+</view>
+
+<!--循环 <block wx:for="{{movie}}" wx:for-item="movie">
+  <view class="single-view-container">
+    <template is="movieTemplate" data="{{...movie}}" />
+  </view>
+</block> -->
+<!-- <template is="movieListTemplate" />
+<template is="movieListTemplate" /> -->
